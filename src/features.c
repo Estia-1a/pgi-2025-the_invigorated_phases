@@ -35,7 +35,7 @@ void tenth_pixel (char *source_path){
     read_image_data(source_path, &data, &width, &height, &channel_count);
     printf("tenth_pixel: %d, %d, %d",data[27],data[28],data[29]);
 }
-second_line(char *source_path){
+void second_line(char *source_path){
     int *width,*height,*channel_count;
     unsigned char* data;
     read_image_data(source_path, &data, &width, &height, &channel_count);
