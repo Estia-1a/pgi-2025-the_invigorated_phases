@@ -1,0 +1,113 @@
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c: In function ‘dimension’:
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:21:41: warning: passing argument 3 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   21 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                         ^~~~~~
+      |                                         |
+      |                                         int **
+In file included from /home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:1:
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:70: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                 ~~~~~^~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:21:49: warning: passing argument 4 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   21 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                                 ^~~~~~~
+      |                                                 |
+      |                                                 int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:82: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                             ~~~~~^~~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:21:58: warning: passing argument 5 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   21 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                                          ^~~~~~~~~~~~~~
+      |                                                          |
+      |                                                          int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:95: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                                          ~~~~~^~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:22:25: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int *’ [-Wformat=]
+   22 |     printf("dimension: %d,%d",width,height);
+      |                        ~^     ~~~~~
+      |                         |     |
+      |                         int   int *
+      |                        %ls
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:22:28: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘int *’ [-Wformat=]
+   22 |     printf("dimension: %d,%d",width,height);
+      |                           ~^        ~~~~~~
+      |                            |        |
+      |                            int      int *
+      |                           %ls
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c: In function ‘first_pixel’:
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:28:41: warning: passing argument 3 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   28 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                         ^~~~~~
+      |                                         |
+      |                                         int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:70: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                 ~~~~~^~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:28:49: warning: passing argument 4 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   28 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                                 ^~~~~~~
+      |                                                 |
+      |                                                 int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:82: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                             ~~~~~^~~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:28:58: warning: passing argument 5 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   28 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                                          ^~~~~~~~~~~~~~
+      |                                                          |
+      |                                                          int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:95: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                                          ~~~~~^~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c: In function ‘tenth_pixel’:
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:35:41: warning: passing argument 3 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   35 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                         ^~~~~~
+      |                                         |
+      |                                         int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:70: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                 ~~~~~^~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:35:49: warning: passing argument 4 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   35 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                                 ^~~~~~~
+      |                                                 |
+      |                                                 int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:82: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                             ~~~~~^~~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:35:58: warning: passing argument 5 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   35 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                                          ^~~~~~~~~~~~~~
+      |                                                          |
+      |                                                          int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:95: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                                          ~~~~~^~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c: In function ‘second_line’:
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:41:41: warning: passing argument 3 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   41 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                         ^~~~~~
+      |                                         |
+      |                                         int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:70: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                 ~~~~~^~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:41:49: warning: passing argument 4 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   41 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                                 ^~~~~~~
+      |                                                 |
+      |                                                 int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:82: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                             ~~~~~^~~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:41:58: warning: passing argument 5 of ‘read_image_data’ from incompatible pointer type [-Wincompatible-pointer-types]
+   41 |     read_image_data(source_path, &data, &width, &height, &channel_count);
+      |                                                          ^~~~~~~~~~~~~~
+      |                                                          |
+      |                                                          int **
+/home/runner/work/pgi-2025-the_invigorated_phases/lib/estia_image/include/estia-image.h:13:95: note: expected ‘int *’ but argument is of type ‘int **’
+   13 | int read_image_data(const char *filename, unsigned char **data, int *width, int *height, int *channel_count);
+      |                                                                                          ~~~~~^~~~~~~~~~~~~
