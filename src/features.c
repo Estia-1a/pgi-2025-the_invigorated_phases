@@ -50,6 +50,7 @@ void print_pixel( char *filename, int x, int y ) {
     pixel = get_pixel(data, width, height, channel_count, x, y );
     printf("print_pixel (%d, %d): %d, %d, %d", x, y, pixel->R, pixel->G, pixel->B);
 }
+
 void max_pixel(char *filename){
     pixelRGB* pixel;
     pixelRGB* res_pixel;
@@ -71,4 +72,27 @@ void max_pixel(char *filename){
         }
     }
     printf("max_pixel (%d, %d): %d, %d, %d", x, y, res_pixel->R, res_pixel->G, res_pixel->B);
+}
+
+void min_pixel(char *filename){
+    pixelRGB* pixel;
+    pixelRGB* res_pixel;
+    unsigned char* data;
+    int width, height, channel_count;
+    int i,j,p,res=765, x, y;
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    res_pixel=get_pixel(data, width, height, channel_count, 0, 0);
+    for (i=0;i<width;i++){
+        for (j=0;j<height;j++){
+            pixel = get_pixel(data, width, height, channel_count, i, j);
+            p=(pixel->R)+(pixel->G)+(pixel->B);
+            if (p<res){
+                res=p;
+                x=i;
+                y=j;
+                res_pixel=pixel;
+            }
+        }
+    }
+    printf("min_pixel (%d, %d): %d, %d, %d", x, y, res_pixel->R, res_pixel->G, res_pixel->B);
 }
