@@ -42,3 +42,12 @@ void second_line(char *source_path){
     printf("second ligne : %d, %d, %d",data[4464],data[4465],data[4466]);
 }
 
+void print_pixel( char *filename, int x, int y ) {
+    pixelRGB* pixel;
+    unsigned char* data;
+    int width, height, channel_count;
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    pixel = get_pixel(data, width, height, channel_count, x, y );
+    printf("print_pixel (%d, %d): %d, %d, %d", x, y, pixel->R, pixel->G, pixel->B);
+}
+
