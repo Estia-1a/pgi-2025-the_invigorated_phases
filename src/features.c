@@ -96,3 +96,49 @@ void min_pixel(char *filename){
     }
     printf("min_pixel (%d, %d): %d, %d, %d", x, y, res_pixel->R, res_pixel->G, res_pixel->B);
 }
+
+void min_component(char *filename, char X){
+    pixelRGB* pixel;
+    pixelRGB* res_pixel;
+    unsigned char* data;
+    int width, height, channel_count;
+    int i,j,x=0,y=0;
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    res_pixel=get_pixel(data, width, height, channel_count, 0, 0);
+    for (i=0;i<width;i++){
+        for (j=0;j<height;j++){
+            pixel = get_pixel(data, width, height, channel_count, i, j);
+            if (X=='R'){
+                if (pixel->R < res_pixel->R){
+                    x=i;
+                    y=j;
+                    res_pixel=pixel;
+                }
+            }
+            if (X=='G'){
+                if(pixel->G < res_pixel->G){
+                    x=i;
+                    y=j;
+                    res_pixel=pixel;
+                }
+            }
+            if (X=='B'){
+                if(pixel->B < res_pixel->B){
+                    x=i;
+                    y=j;
+                    res_pixel=pixel;
+                    
+                }
+            }
+            }
+        }
+if (X=='R'){
+   printf("min_component R (%d,%d): %d",x,y,res_pixel->R);
+}
+if (X=='G'){
+    printf("min_component G (%d,%d): %d",x,y,res_pixel->G);
+}
+if (X=='B'){
+    printf("min_component B (%d,%d): %d",x,y,res_pixel->B);
+}
+}
