@@ -18,4 +18,6 @@ void min_pixel(char *filename);
 
 void min_component(char *filename, char X);
 
+void max_component(char *filename, char X);
+
 #endif
