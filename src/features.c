@@ -52,32 +52,35 @@ void print_pixel( char *filename, int x, int y ) {
     printf("print_pixel (%d, %d): %d, %d, %d", x, y, pixel->R, pixel->G, pixel->B);
 }
 
-void max_pixel(char *filename){
+void max_pixel(char *filename) {
     pixelRGB* pixel;
-    pixelRGB* res_pixel;
+    pixelRGB res_pixel;
     unsigned char* data;
     int width, height, channel_count;
-    int i,j,p,res=0, x, y;
+    int i, j, p, res=0, x=0, y=0;
     read_image_data(filename, &data, &width, &height, &channel_count);
-    res_pixel=get_pixel(data, width, height, channel_count, 0, 0);
-    for (i=0;i<width;i++){
-        for (j=0;j<height;j++){
-            pixel = get_pixel(data, width, height, channel_count, i, j);
-            p=(pixel->R)+(pixel->G)+(pixel->B);
-            if (p>res){
+    pixel = get_pixel(data, width, height, channel_count, 0, 0);
+    res_pixel=*pixel;
+    res=res_pixel.R+res_pixel.G+res_pixel.B;
+
+    for (i=0; i<width; i++) {
+        for (j=0; j<height; j++) {
+            pixel=get_pixel(data, width, height, channel_count, i, j);
+            p=pixel->R+pixel->G+pixel->B;
+            if (p>res) {
                 res=p;
                 x=i;
                 y=j;
-                res_pixel=pixel;
+                res_pixel=*pixel;
             }
         }
     }
-    printf("max_pixel (%d, %d): %d, %d, %d", x, y, res_pixel->R, res_pixel->G, res_pixel->B);
+    printf("max_pixel (%d, %d): %d, %d, %d\n", x, y, res_pixel.R, res_pixel.G, res_pixel.B);
 }
 
 void min_pixel(char *filename){
     pixelRGB* pixel;
-    pixelRGB* res_pixel;
+    pixelRGB res_pixel;
     unsigned char* data;
     int width, height, channel_count;
     int i,j,p,res=765, x, y;
@@ -91,11 +94,11 @@ void min_pixel(char *filename){
                 res=p;
                 x=i;
                 y=j;
-                res_pixel=pixel;
+                res_pixel=*pixel;
             }
         }
     }
-    printf("min_pixel (%d, %d): %d, %d, %d", x, y, res_pixel->R, res_pixel->G, res_pixel->B);
+    printf("min_pixel (%d, %d): %d, %d, %d", x, y, res_pixel.R, res_pixel.G, res_pixel.B);
 }
 
 void min_component(char *filename, char X){
