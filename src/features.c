@@ -277,3 +277,18 @@ void color_gray(char *filename){
     }
     write_image_data("image_out.bmp", data2, width, height);
 }
+
+void color_invert(char *filename){
+    unsigned char* data;
+    unsigned char* data2;
+    int width, height, channel_count;
+    int i;
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    int size;
+    size = width*height*3;
+    data2=malloc(size);
+    for (i=0;i<size;i++){
+        data2[i]=255-data[i];  
+    }
+    write_image_data("image_out.bmp", data2, width, height);
+}
