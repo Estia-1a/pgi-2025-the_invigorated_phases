@@ -292,3 +292,26 @@ void color_invert(char *filename){
     }
     write_image_data("image_out.bmp", data2, width, height);
 }
+
+void rotate_cw(char *filename) {
+    unsigned char* data;
+    unsigned char* data2;
+    int width, height, channel_count;
+    int x, y;
+    int index1, index2, new_x, new_y;
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    int size = width * height * 3;
+    data2 = malloc(size);
+    for (y=0;y<height;y++) {
+        for (x=0;x<width;x++){
+            index1=y*width*3+3*x;
+            new_x=height-1-y;
+            new_y=x;
+            index2=new_y*height*3+3*new_x;
+            data2[index2]=data[index1];
+            data2[index2+1]=data[index1+1];
+            data2[index2+2]=data[index1+2];
+        }
+    }
+    write_image_data("image_out.bmp", data2, height, width);
+}
