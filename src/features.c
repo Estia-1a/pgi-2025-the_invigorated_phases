@@ -3,6 +3,7 @@
 
 #include "features.h"
 #include "utils.h"
+#include "stdlib.h"
 
 /**
  * @brief Here, you have to code features of the project.
@@ -206,4 +207,21 @@ void stat_report(char *filename){
     dup2(stdout_copy, fileno(stdout));
     close(stdout_copy);
     fclose(f);
+}
+
+void color_red(char *filename){
+    unsigned char* data;
+    unsigned char* data2;
+    int width, height, channel_count;
+    int i;
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    int size;
+    size = width*height*3;
+    data2=malloc(size);
+    for (i=0;i<size;i+=3){
+        data2[i]= data[i];
+        data2[i+1]=0;
+        data2[i+2]=0;
+    }
+    write_image_data("image_out.bmp", data2, width, height);
 }

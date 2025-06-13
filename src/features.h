@@ -22,4 +22,6 @@ void max_component(char *filename, char X);
 
 void stat_report(char *filename);
 
+void color_red(char *filename);
+
 #endif
