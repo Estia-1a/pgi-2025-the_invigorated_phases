@@ -70,6 +70,10 @@ int main(int argc, char **argv) {
   if ( strncmp( configuration.command, "max_component", 12 ) == 0 ) {
     char X=configuration.arguments[0][0];
     max_component(configuration.filenames[0], X);
+
+    if ( strncmp( configuration.command, "stat_report", 11 ) == 0 ) {
+    stat_report(configuration.filenames[0]);
+   }
   }
   return 0;
 }

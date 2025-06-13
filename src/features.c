@@ -188,3 +188,22 @@ if (X=='B'){
     printf("max_component B (%d,%d): %d",x,y,res_pixel->B);
 }
 }
+
+void stat_report(char *filename){
+ 
+    FILE *f = fopen("AAAAAAAAAAAAAAH.txt", "w");
+ 
+    int stdout_copy = dup(fileno(stdout));
+    fflush(stdout);
+    dup2(fileno(f), fileno(stdout));
+ 
+    max_pixel(filename);
+    printf("\n");
+    min_pixel(filename);
+    printf("\n");
+ 
+    fflush(stdout);
+    dup2(stdout_copy, fileno(stdout));
+    close(stdout_copy);
+    fclose(f);
+}

@@ -20,4 +20,6 @@ void min_component(char *filename, char X);
 
 void max_component(char *filename, char X);
 
+void stat_report(char *filename);
+
 #endif
