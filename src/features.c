@@ -3,7 +3,7 @@
 
 #include "features.h"
 #include "utils.h"
-#include "stdlib.h"
+#include <stdlib.h>
 
 /**
  * @brief Here, you have to code features of the project.
@@ -85,7 +85,7 @@ void min_pixel(char *filename){
     int width, height, channel_count;
     int i,j,p,res=765, x, y;
     read_image_data(filename, &data, &width, &height, &channel_count);
-    res_pixel=get_pixel(data, width, height, channel_count, 0, 0);
+    res_pixel=*get_pixel(data, width, height, channel_count, 0, 0);
     for (i=0;i<width;i++){
         for (j=0;j<height;j++){
             pixel = get_pixel(data, width, height, channel_count, i, j);
