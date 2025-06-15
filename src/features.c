@@ -413,3 +413,37 @@ void mirror_total(char *filename) {
     }
     write_image_data("image_out.bmp", data2, width, height);
 }
+
+void color_desaturate(char *filename) {
+    unsigned char* data;
+    unsigned char* data2;
+    int width, height, channel_count;
+    int i, R, G, B, min, max, new_val;
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    int size = width*height*3;
+    data2 = malloc(size);
+    for (i=0;i<size;i+=3) {
+        R=data[i];
+        G=data[i+1];
+        B=data[i+2];
+        min=R;
+        if (G<min) {
+            min=G;
+        }
+        if (B<min) {
+            min=B;
+        }
+        max=R;
+        if (G>max) {
+            max=G;
+        }
+        if (B>max) {
+            max=B;
+        }
+        new_val=(min+max)/2;
+        data2[i]=new_val;
+        data2[i+1]=new_val;
+        data2[i+2]=new_val;
+    }
+    write_image_data("image_out.bmp", data2, width, height);
+}
