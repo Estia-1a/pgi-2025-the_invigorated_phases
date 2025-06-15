@@ -1,0 +1,21 @@
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c: In function ‘min_pixel’:
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:88:15: error: incompatible types when assigning to type ‘pixelRGB’ {aka ‘struct _pixelRGB’} from type ‘pixelRGB *’ {aka ‘struct _pixelRGB *’}
+   88 |     res_pixel=get_pixel(data, width, height, channel_count, 0, 0);
+      |               ^~~~~~~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c: In function ‘stat_report’:
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:200:23: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+  200 |     int stdout_copy = dup(fileno(stdout));
+      |                       ^~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:202:5: warning: implicit declaration of function ‘dup2’ [-Wimplicit-function-declaration]
+  202 |     dup2(fileno(f), fileno(stdout));
+      |     ^~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:211:5: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+  211 |     close(stdout_copy);
+      |     ^~~~~
+      |     pclose
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:93: CMakeFiles/freud.dir/src/features.c.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/freud.dir/all] Error 2
+gmake: *** [Makefile:136: all] Error 2
+
+The process '/usr/local/bin/cmake' failed with exit code 2
