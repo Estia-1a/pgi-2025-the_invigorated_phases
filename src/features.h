@@ -44,4 +44,6 @@ void mirror_total(char *filename);
 
 void color_desaturate(char *filename);
 
+void scale_crop(char *filename, int center_x, int center_y, int new_width, int new_height);
+
 #endif

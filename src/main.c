@@ -118,5 +118,13 @@ int main(int argc, char **argv) {
   if ( strncmp( configuration.command, "color_desaturate", 16 ) == 0 ) {
     color_desaturate(configuration.filenames[0]);
   }
+  if ( strncmp( configuration.command, "scale_crop", 10 ) == 0 ) {
+    int center_x = atoi(configuration.arguments[0]);
+    int center_y = atoi(configuration.arguments[1]);
+    int new_width = atoi(configuration.arguments[2]);
+    int new_height = atoi(configuration.arguments[3]);
+
+    scale_crop(configuration.filenames[0], center_x, center_y, new_width, new_height);
+  }
   return 0;
 }
