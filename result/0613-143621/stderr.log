@@ -1,0 +1,11 @@
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c: In function ‘stat_report’:
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:197:23: warning: implicit declaration of function ‘dup’ [-Wimplicit-function-declaration]
+  197 |     int stdout_copy = dup(fileno(stdout));
+      |                       ^~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:199:5: warning: implicit declaration of function ‘dup2’ [-Wimplicit-function-declaration]
+  199 |     dup2(fileno(f), fileno(stdout));
+      |     ^~~~
+/home/runner/work/pgi-2025-the_invigorated_phases/pgi-2025-the_invigorated_phases/src/features.c:208:5: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+  208 |     close(stdout_copy);
+      |     ^~~~~
+      |     pclose
