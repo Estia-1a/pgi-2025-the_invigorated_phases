@@ -299,6 +299,24 @@ void color_invert(char *filename){
     write_image_data("image_out.bmp", data2, width, height);
 }
 
+void color_gray_luminance(char *filename){
+    unsigned char* data;
+    unsigned char* data2;
+    int width, height, channel_count;
+    int i;
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    int size;
+    size = width*height*3;
+    data2=malloc(size);
+    for (i=0;i<size;i+=3) {
+        unsigned char value=0.21*data[i]+0.72*data[i+1]+0.07*data[i+2];
+        data2[i] = value;
+        data2[i + 1] = value;
+        data2[i + 2] = value;
+    }
+    write_image_data("image_out.bmp", data2, width, height);
+}
+
 void rotate_cw(char *filename) {
     unsigned char* data;
     unsigned char* data2;
