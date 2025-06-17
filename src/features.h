@@ -46,4 +46,6 @@ void color_desaturate(char *filename);
 
 void scale_crop(char *filename, int center_x, int center_y, int new_width, int new_height);
 
+void scale_nearest(char *filename, float X);
+
 #endif
