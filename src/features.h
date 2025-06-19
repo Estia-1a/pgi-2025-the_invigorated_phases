@@ -50,4 +50,5 @@ void scale_crop(char *filename, int center_x, int center_y, int new_width, int n
 
 void scale_nearest(char *filename, float X);
 
+void scale_bilinear(char *filename, float X);
 #endif

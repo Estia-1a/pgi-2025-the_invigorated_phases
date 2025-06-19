@@ -134,5 +134,9 @@ int main(int argc, char **argv) {
     float X = atof(configuration.arguments[0]);
     scale_nearest(configuration.filenames[0],X);
   }
+    if ( strncmp( configuration.command, "scale_bilinear", 14 ) == 0 ) {
+    float X = atof(configuration.arguments[0]);
+    scale_bilinear(configuration.filenames[0],X);
+  }
   return 0;
 }

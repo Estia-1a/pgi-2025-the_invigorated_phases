@@ -534,3 +534,63 @@ void scale_nearest(char *filename, float X){
 write_image_data("image_out.bmp", data2, width2, height2);
 
 }
+
+void scale_bilinear(char *filename, float X){
+    unsigned char* data;
+    unsigned char* data2;
+    int width, height, channel_count;
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    int width2, height2,size;
+    width2 = width*X;
+    height2 = height*X;
+    size = width2*height2*channel_count;
+    data2=malloc(size);
+    int x1,y1,c;
+    float dx,dy;
+    float gx, gy;
+    int pixel_droite,pixel_dessous;
+    int x0,y0;
+    int index1, index2, index3, index4;
+    float v1, v2, v3, v4;
+    float bilineaire;
+    for(y1=0;y1<height2;y1++){
+        for(x1=0;x1<width2;x1++){
+            gx=x1/X;
+            gy=y1/X;
+            x0=(int)gx;
+            y0=(int)gy;
+            pixel_droite=x0+1;
+            pixel_dessous=y0+1;
+            if (pixel_droite>=width){
+                pixel_droite=width-1;
+            }
+            if (pixel_dessous>=height){
+                pixel_dessous=height-1;
+            }
+            if (x0>=width){
+                x0=width-1;
+            }
+            if (y0>=height){
+                y0=height-1;
+            }
+            dx=gx-x0;
+            dy=gy-y0;
+            for(c=0;c<channel_count;c++){
+                index1=(y0*width+x0)*channel_count+c;
+                index2=(y0*width+pixel_droite)*channel_count+c;
+                index3=(pixel_dessous*width+x0)*channel_count+c;
+                index4=(pixel_dessous*width+pixel_droite)*channel_count+c;
+
+                v1=data[index1];
+                v2=data[index2];
+                v3=data[index3];
+                v4=data[index4];
+
+                bilineaire=(1-dx)*(1-dy)*v1+v2*dx*(1-dy)+v3*(1-dx)*dy+v4*dx*dy;
+                data2[(y1*width2+x1)*channel_count+c]=(unsigned char)bilineaire;
+            }
+
+        }
+    }
+    write_image_data("image_out.bmp", data2, width2, height2);
+}
