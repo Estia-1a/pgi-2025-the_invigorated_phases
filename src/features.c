@@ -471,28 +471,26 @@ void scale_crop(char *filename, int center_x, int center_y, int new_width, int n
     unsigned char* data2;
     int width, height, channel_count;
     read_image_data(filename, &data, &width, &height, &channel_count);
-    int size = new_width * new_height * channel_count;
-    data2 = malloc(size);
-    int x_start = center_x - new_width / 2;
-    int y_start = center_y - new_height / 2;
+    if (new_width>width) new_width=width;
+    if (new_height>height) new_height=height;
+    int x_start=center_x-new_width/2;
+    int y_start=center_y-new_height/2;
+    if (x_start<0) x_start=0;
+    if (y_start<0) y_start=0;
+    if (x_start+new_width>width) x_start=width-new_width;
+    if (y_start+new_height>height) y_start=height-new_height;
+    int size=new_width*new_height*channel_count;
+    data2=malloc(size);
     int x, y;
     int index, index2;
+ 
     for (y=0; y<new_height; y++) {
         for (x=0; x<new_width; x++) {
             int src_x=x_start+x;
             int src_y=y_start+y;
-            if (src_x<0) 
-                src_x=0;
-            if (src_x>=width) 
-                src_x=width-1;
-            if (src_y<0) 
-                src_y=0;
-            if (src_y>=height) 
-                src_y=height-1;
-
-            index=(src_y*width+src_x)*channel_count;
-            index2=(y*new_width+x)*channel_count;
-
+ 
+            index=(src_y*width+src_x)*3;
+            index2=(y*new_width+x)*3;
             data2[index2]=data[index];
             data2[index2+1]=data[index+1];
             data2[index2+2]=data[index+2];
