@@ -384,7 +384,7 @@ void mirror_horizontal(char *filename) {
             data2[index2+2]=data[index1+2];
         }
     }
-    write_image_data("image_out.bmp", data2, height, width);
+    write_image_data("image_out.bmp", data2, width, height);
 }
 
 void mirror_vertical(char *filename) {
